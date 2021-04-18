@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <v-app>
+    <v-app-bar app color="primary" dark>
+      <v-spacer></v-spacer>
+    </v-app-bar>
+
+    <v-main>
+      <Age />
+    </v-main>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Age from "./components/CalculateAge";
 
 export default {
-  name: 'App',
+  mounted() {},
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
-</script>
+    Age,
+  },
 
+  data: () => ({
+    //
+  }),
+};
+</script>
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  font-family: "Tajawal", sans-serif;
+  font-weight: 400;
 }
 </style>
