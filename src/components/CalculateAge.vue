@@ -25,7 +25,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col >{{ timeDiff }} </v-col>
+      <v-col>{{ timeDiff }} </v-col>
     </v-row>
   </v-container>
 </template>
