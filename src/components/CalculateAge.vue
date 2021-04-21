@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col style="text-align:center">
+      <v-col style="text-align:center;margin:30px">
         <p style="font-size: 2.8rem">
           حساب العمر - احسب عمرك
         </p>
@@ -9,49 +9,76 @@
         "احسب العمر"
       </v-col>
     </v-row>
-    <v-row align="center">
-      <v-col>
+    <v-row
+      justify="center"
+      class=" mb-2"
+      align="center"
+      style="margin-top:50px"
+    >
+      <v-col cols="2">
         <v-select
           v-model="dateType"
           :items="dateTypeMenu"
           label="إختر التقويم"
         ></v-select>
       </v-col>
-      <v-col>
-        <v-text-field v-model="date" type="date"></v-text-field>
+      <v-col cols="2">
+        <v-autocomplete
+          v-model="selectedDay"
+          :items="days"
+          label="إختر اليوم"
+        ></v-autocomplete>
       </v-col>
-      <v-col>
-        <v-btn @click="calcAge">إحسب عمرك</v-btn>
+      <v-col cols="2">
+        <v-autocomplete
+          v-model="selectedMonth"
+          label="إختر الشهر"
+          :item-text="(item) => item.value + ' - ' + item.text"
+          :items="months"
+        ></v-autocomplete>
+      </v-col>
+      <v-col cols="2">
+        <v-autocomplete
+          v-model="selectedYear"
+          label="إختر العام"
+          :items="years"
+        ></v-autocomplete>
+      </v-col>
+      <v-col cols="2">
+        <v-btn @click="calcAge">
+          <h4>إحسب عمرك</h4>
+        </v-btn>
       </v-col>
     </v-row>
 
-    <v-row v-if="date1">
-      <v-col cols="12" md="6">
+    <v-row justify="center" v-if="date1">
+      <v-col cols="10" class="ageArea">
         عمرك بالميلادي :
         {{ date1 }}
       </v-col>
-      <v-col cols="12" md="6">
+
+      <v-col justify="center" cols="10" class="ageArea">
         عمرك بالهجري :
         {{ date2 }}
       </v-col>
     </v-row>
-    <v-row>
-      <v-col cols="12">
-        عمرك بالشهور : {{ Math.floor(timeDiff / 1000 / 3600 / 24  / 30) }}
+    <v-row justify="center" v-if="date1" class="text-center">
+      <v-col cols="5" class="ageArea">
+        عمرك بالشهور : {{ Math.floor(timeDiff / 1000 / 3600 / 24 / 30) }}
       </v-col>
-      <v-col cols="12">
+      <v-col cols="5" class="ageArea">
         عمرك بالآسابيع : {{ Math.floor(timeDiff / 1000 / 3600 / 24 / 7) }}
       </v-col>
-      <v-col cols="12">
+      <v-col cols="5" class="ageArea">
         عمرك بالأيام : {{ Math.floor(timeDiff / 1000 / 3600 / 24) }}
       </v-col>
-      <v-col cols="12">
+      <v-col cols="5" class="ageArea">
         عمرك بالساعات : {{ Math.floor(timeDiff / 1000 / 60 / 60) }}
       </v-col>
-      <v-col cols="12">
+      <v-col cols="5" class="ageArea">
         عمرك بالدقائق : {{ Math.floor(timeDiff / 1000 / 60) }}
       </v-col>
-      <v-col cols="12">
+      <v-col cols="5" class="ageArea">
         عمرك الثواني : {{ Math.floor(timeDiff / 1000) }}
       </v-col>
     </v-row>
@@ -79,7 +106,12 @@
   </v-container>
 </template>
 <script>
-import { main, ConvertAgeDiffToString } from "./script";
+import {
+  main,
+  ConvertAgeDiffToString,
+  ArabicMonths,
+  ArabicGregMonths,
+} from "./script";
 
 export default {
   //   mounted() {
@@ -104,19 +136,49 @@ export default {
       }
     },
   },
-  // computed: {
-  //   timeDiff() {
-  //     if (this.date) {
-  //       console.log(main(this.date, this.dateType));
-  //       let { _data } = main(this.date, this.dateType);
+  computed: {
+    date() {
+      return (
+        this.selectedYear + "-" + this.selectedMonth + "-" + this.selectedDay
+      );
+    },
+    days() {
+      let arr = [];
+      if (this.dateType === "hijri") {
+        for (let i = 1; i <= 30; i++) {
+          arr.push(i);
+        }
+      } else {
+        for (let i = 1; i <= 31; i++) {
+          arr.push(i);
+        }
+      }
+      return arr;
+    },
+    months() {
+      return this.dateType === "hijri" ? ArabicMonths() : ArabicGregMonths();
+    },
 
-  //       return _data;
-  //     }
-  //     return "";
-  //   },
-  // },
+    years() {
+      let arr = [];
+      if (this.dateType === "hijri") {
+        for (let i = 1442; i >= 0; i--) {
+          arr.push(i);
+        }
+      } else {
+        for (let i = 2021; i >= 0; i--) {
+          arr.push(i);
+        }
+      }
+      return arr;
+    },
+  },
   data() {
     return {
+      selectedDay: 1,
+      selectedYear: 1440,
+      selectedMonth: 1,
+
       timeDiff: 0,
       update: 0,
       date1: null,
@@ -132,7 +194,7 @@ export default {
       TableData1: [],
       TableData2: [],
       dateType: "hijri",
-      date: "1441-09-06",
+
       dateTypeMenu: [
         {
           value: "hijri",
@@ -147,3 +209,12 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.ageArea {
+  text-align: center;
+  background-color: #e9e8e8af;
+  border-radius: 10px;
+  margin: 0.5%;
+}
+</style>

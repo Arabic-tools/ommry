@@ -1,6 +1,10 @@
 <template>
   <v-app>
     <v-app-bar app color="primary" dark>
+      <h1>
+        عمرك.كوم
+      </h1>
+
       <v-spacer></v-spacer>
     </v-app-bar>
 

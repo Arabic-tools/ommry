@@ -25,18 +25,11 @@ function main(date, dateType) {
     let higiriAge = _.cloneDeep(diff)
 
     let YearDiff = y.iYear() - x.iYear(), MonthDiff = y.iMonth() - x.iMonth(), DayDiff = y.iDate() - x.iDate()
-    YearDiff = YearDiff - (MonthDiff > 0 ? 0 : 1)
-    MonthDiff = YearDiff >= 0 ? (MonthDiff + 12) % 12 : MonthDiff
+    higiriAge._data.years = YearDiff - (MonthDiff < 0 ? 1 : 0)
+    higiriAge._data.months = (MonthDiff + 12) % 12 - (DayDiff < 0 ? 1 : 0)
+    higiriAge._data.days = (DayDiff + 30) % 30
 
-
-
-    higiriAge._data.years = YearDiff
-    higiriAge._data.months = MonthDiff
-    higiriAge._data.days = DayDiff
-
-
-
-
+    console.log(higiriAge)
     return { gregAge: diff, higiriAge, timeDiff: y.diff(x) }
 }
 
@@ -59,6 +52,40 @@ function ConvertAgeDiffToString(age) {
     x = x.slice(0, x.length - 3)
     return x
 
+}
+
+function ArabicMonths() {
+    return [
+        { text: "محرم", value: 1 },
+        { text: "صفر", value: 2 },
+        { text: "ربيع الأول", value: 3 },
+        { text: "ربيع الثاني", value: 4 },
+        { text: "جمادى الأولى", value: 5 },
+        { text: "جمادى الآخرة", value: 6 },
+        { text: "رجب", value: 7 },
+        { text: "شعبان", value: 8 },
+        { text: "رمضان", value: 9 },
+        { text: "شوال", value: 10 },
+        { text: "ذو القعدة", value: 11 },
+        { text: "ذو الحجة", value: 12 },
+    ]
+}
+
+function ArabicGregMonths() {
+    return [
+        { text: "يناير", value: 1 },
+        { text: "فبراير", value: 2 },
+        { text: "مارس", value: 3 },
+        { text: "آبريل", value: 4 },
+        { text: "مايو", value: 5 },
+        { text: "يونيو", value: 6 },
+        { text: "يوليو", value: 7 },
+        { text: "آغسطس", value: 8 },
+        { text: "سبتمبر", value: 9 },
+        { text: "أكتوبر", value: 10 },
+        { text: "نوفمبر", value: 11 },
+        { text: "ديسمبر", value: 12 },
+    ]
 }
 
 
@@ -95,4 +122,4 @@ function ConvertAgeDiffToString(age) {
 // // Complex parse:
 // moment('1990 5 25', 'YYYY iM D').format('YYYY/MM/DD'); // 1990/03/25
 
-export { main, ConvertAgeDiffToString }
+export { main, ConvertAgeDiffToString, ArabicMonths , ArabicGregMonths }
