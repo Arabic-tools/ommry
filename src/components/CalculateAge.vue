@@ -15,21 +15,21 @@
       align="center"
       style="margin-top:50px"
     >
-      <v-col cols="2">
+      <v-col cols="12" md="2">
         <v-select
           v-model="dateType"
           :items="dateTypeMenu"
           label="إختر التقويم"
         ></v-select>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="4" md="2">
         <v-autocomplete
           v-model="selectedDay"
           :items="days"
           label="إختر اليوم"
         ></v-autocomplete>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="4" md="2">
         <v-autocomplete
           v-model="selectedMonth"
           label="إختر الشهر"
@@ -37,14 +37,14 @@
           :items="months"
         ></v-autocomplete>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="4" md="2">
         <v-autocomplete
           v-model="selectedYear"
           label="إختر العام"
           :items="years"
         ></v-autocomplete>
       </v-col>
-      <v-col cols="2">
+      <v-col cols="4" md="2">
         <v-btn @click="calcAge">
           <h4>إحسب عمرك</h4>
         </v-btn>
