@@ -1,7 +1,7 @@
 <template>
   <v-container>
     <v-row>
-      <v-col style="text-align:center;margin:30px">
+      <v-col style="text-align:center;margin:20px">
         <p style="font-size: 2.8rem">
           حساب العمر - احسب عمرك
         </p>
@@ -141,8 +141,8 @@ export default {
       //   this.TableData1.push({ text: i, value: gregAge._data[i] });
       // }
 
-      let  {_data } = BirthdayRemaining(this.date,this.dateType)
-      this.date3 = ConvertAgeDiffToString(_data)
+      let { _data } = BirthdayRemaining(this.date, this.dateType);
+      this.date3 = ConvertAgeDiffToString(_data);
       // console.log(_data)
 
       if (this.update === 0) {
@@ -192,7 +192,7 @@ export default {
   },
   data() {
     return {
-      date3 : "",
+      date3: "",
       selectedDay: 1,
       selectedYear: 1440,
       selectedMonth: 1,
@@ -234,6 +234,7 @@ export default {
   background-color: #e9e8e8af;
   border-radius: 10px;
   margin: 0.5%;
+  font-size: 0.9rem;
   // padding: -5px;
 }
 </style>
