@@ -28,9 +28,23 @@ function main(date, dateType) {
     higiriAge._data.years = YearDiff - (MonthDiff < 0 ? 1 : 0)
     higiriAge._data.months = (MonthDiff + 12) % 12 - (DayDiff < 0 ? 1 : 0)
     higiriAge._data.days = (DayDiff + 30) % 30
-
-    console.log(higiriAge)
     return { gregAge: diff, higiriAge, timeDiff: y.diff(x) }
+}
+
+function BirthdayRemaining(date, dateType) {
+    let x, y = moment()
+    if (dateType === 'hijri') x = moment(date, "iYYYY-iM-iD")
+    else x = moment(date, "YYYY-MM-DD")
+
+    x.year(y.year());
+    let diff = moment.duration(x.diff(y))
+
+    if (diff._milliseconds < 0) {
+        x.year(y.year()+1);     
+    }
+    return moment.duration(x.diff(y))
+
+
 }
 
 function ConvertAgeDiffToString(age) {
@@ -122,4 +136,4 @@ function ArabicGregMonths() {
 // // Complex parse:
 // moment('1990 5 25', 'YYYY iM D').format('YYYY/MM/DD'); // 1990/03/25
 
-export { main, ConvertAgeDiffToString, ArabicMonths , ArabicGregMonths }
+export { main, ConvertAgeDiffToString, ArabicMonths, ArabicGregMonths, BirthdayRemaining }

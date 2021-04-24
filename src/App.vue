@@ -6,6 +6,9 @@
       </h1>
 
       <v-spacer></v-spacer>
+      <h1>
+        Ommry.com
+      </h1>
     </v-app-bar>
 
     <v-main>
@@ -14,9 +17,6 @@
     <v-footer>
       <v-row>
         <v-col style="text-align:center">
-          الكلمات المفتاحية لـ موقع عمري : حساب العمر | احسب عمرك | حساب العمر
-          بالهجري | حساب العمر بالميلادي | حاسبة العمر؛
-          <br />
           للإتصال بنا:
           <a href="mailto:Ommry@inboxeen.com">Ommry@inboxeen.com</a>
 

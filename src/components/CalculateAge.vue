@@ -61,6 +61,11 @@
         عمرك بالهجري :
         {{ date2 }}
       </v-col>
+
+      <v-col justify="center" cols="10" class="ageArea">
+        باقي علي عيد ميلادك :
+        {{ date3 }}
+      </v-col>
     </v-row>
     <v-row justify="center" v-if="date1" class="text-center">
       <v-col cols="5" class="ageArea">
@@ -80,6 +85,12 @@
       </v-col>
       <v-col cols="5" class="ageArea">
         عمرك الثواني : {{ Math.floor(timeDiff / 1000) }}
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col style="color:white">
+        الكلمات المفتاحية لـ موقع عمري : حساب العمر | احسب عمرك | حساب العمر
+        بالهجري | حساب العمر بالميلادي | حاسبة العمر؛
       </v-col>
     </v-row>
 
@@ -111,6 +122,7 @@ import {
   ConvertAgeDiffToString,
   ArabicMonths,
   ArabicGregMonths,
+  BirthdayRemaining,
 } from "./script";
 
 export default {
@@ -125,9 +137,14 @@ export default {
       this.date1 = ConvertAgeDiffToString(gregAge._data);
       this.date2 = ConvertAgeDiffToString(higiriAge._data);
       this.timeDiff = timeDiff;
-      for (let i in gregAge._data) {
-        this.TableData1.push({ text: i, value: gregAge._data[i] });
-      }
+      // for (let i in gregAge._data) {
+      //   this.TableData1.push({ text: i, value: gregAge._data[i] });
+      // }
+
+      let  {_data } = BirthdayRemaining(this.date,this.dateType)
+      this.date3 = ConvertAgeDiffToString(_data)
+      // console.log(_data)
+
       if (this.update === 0) {
         this.update++;
         setInterval(() => {
@@ -166,7 +183,7 @@ export default {
           arr.push(i);
         }
       } else {
-        for (let i = 2021; i >= 0; i--) {
+        for (let i = 2021; i >= 1500; i--) {
           arr.push(i);
         }
       }
@@ -175,6 +192,7 @@ export default {
   },
   data() {
     return {
+      date3 : "",
       selectedDay: 1,
       selectedYear: 1440,
       selectedMonth: 1,
@@ -216,5 +234,6 @@ export default {
   background-color: #e9e8e8af;
   border-radius: 10px;
   margin: 0.5%;
+  // padding: -5px;
 }
 </style>
