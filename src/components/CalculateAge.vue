@@ -52,43 +52,51 @@
     </v-row>
 
     <v-row justify="center" v-if="date1">
+      <v-col justify="center" cols="10" class="ageArea">
+        <span> عمرك بالهجري : </span>
+
+        {{ date2 }}
+      </v-col>
       <v-col cols="10" class="ageArea">
-        عمرك بالميلادي :
+        <span> عمرك بالميلادي :</span>
+
         {{ date1 }}
       </v-col>
 
       <v-col justify="center" cols="10" class="ageArea">
-        عمرك بالهجري :
-        {{ date2 }}
-      </v-col>
+        <span> باقي علي عيد ميلادك :</span>
 
-      <v-col justify="center" cols="10" class="ageArea">
-        باقي علي عيد ميلادك :
         {{ date3 }}
       </v-col>
     </v-row>
     <v-row justify="center" v-if="date1" class="text-center">
       <v-col cols="5" class="ageArea">
-        عمرك بالشهور : {{ Math.floor(timeDiff / 1000 / 3600 / 24 / 30) }}
+        <span>عمرك بالشهور : </span>
+        {{ Math.floor(timeDiff / 1000 / 3600 / 24 / 30) }}
       </v-col>
       <v-col cols="5" class="ageArea">
-        عمرك بالآسابيع : {{ Math.floor(timeDiff / 1000 / 3600 / 24 / 7) }}
+        <span> عمرك بالآسابيع : </span>
+        {{ Math.floor(timeDiff / 1000 / 3600 / 24 / 7) }}
       </v-col>
       <v-col cols="5" class="ageArea">
-        عمرك بالأيام : {{ Math.floor(timeDiff / 1000 / 3600 / 24) }}
+        <span> عمرك بالأيام :</span>
+        {{ Math.floor(timeDiff / 1000 / 3600 / 24) }}
       </v-col>
       <v-col cols="5" class="ageArea">
-        عمرك بالساعات : {{ Math.floor(timeDiff / 1000 / 60 / 60) }}
+        <span> عمرك بالساعات : </span>
+        {{ Math.floor(timeDiff / 1000 / 60 / 60) }}
       </v-col>
       <v-col cols="5" class="ageArea">
-        عمرك بالدقائق : {{ Math.floor(timeDiff / 1000 / 60) }}
+        <span> عمرك بالدقائق : </span>
+        {{ Math.floor(timeDiff / 1000 / 60) }}
       </v-col>
       <v-col cols="5" class="ageArea">
-        عمرك الثواني : {{ Math.floor(timeDiff / 1000) }}
+        <span> عمرك الثواني : </span>
+        {{ Math.floor(timeDiff / 1000) }}
       </v-col>
     </v-row>
     <v-row>
-      <v-col style="color:white">
+      <v-col style="color:white" class="text-center">
         الكلمات المفتاحية لـ موقع عمري : حساب العمر | احسب عمرك | حساب العمر
         بالهجري | حساب العمر بالميلادي | حاسبة العمر؛
       </v-col>
@@ -230,8 +238,12 @@ export default {
 
 <style lang="scss">
 .ageArea {
+  span {
+    font-weight: bold;
+  
+  }
   text-align: center;
-  background-color: #e9e8e8af;
+  background-color: #f5f5f5;
   border-radius: 10px;
   margin: 0.5%;
   font-size: 0.9rem;
