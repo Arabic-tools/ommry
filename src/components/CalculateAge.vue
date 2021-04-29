@@ -46,7 +46,7 @@
       </v-col>
       <v-col cols="4" md="2">
         <v-btn @click="calcAge">
-          <h4>إحسب عمرك</h4>
+          <h4>إحسب العمر</h4>
         </v-btn>
       </v-col>
     </v-row>

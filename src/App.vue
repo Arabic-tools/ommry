@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app color="primary" dark>
       <h1>
-        عمرك.كوم
+        عمري .كوم
       </h1>
 
       <v-spacer></v-spacer>
@@ -45,6 +45,7 @@ export default {
 </script>
 <style lang="scss">
 * {
+  // font-family:  "Graphik LCG Web", "Graphik Arabic Web Regular", -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;;
   font-family: "Tajawal", sans-serif;
   font-weight: 400;
 }
