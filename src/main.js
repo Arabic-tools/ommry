@@ -6,7 +6,7 @@ import VueGtag from "vue-gtag";
 
 Vue.use(VueGtag, {
   config: { id: "G-5S2WVEL61S" }
-}, router);
+});
 
 Vue.config.productionTip = false
 
