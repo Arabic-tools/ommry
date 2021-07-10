@@ -45,7 +45,7 @@
         ></v-autocomplete>
       </v-col>
       <v-col cols="4" md="2">
-        <v-btn @click="calcAge">
+        <v-btn dark @click="calcAge">
           <h4>إحسب العمر</h4>
         </v-btn>
       </v-col>
@@ -95,9 +95,18 @@
         {{ Math.floor(timeDiff / 1000) }}
       </v-col>
     </v-row>
-    <v-row justify="center">
-      <v-col class="text-center">
+    <v-row>
+      <v-col style="color:white" class="text-center">
+        الكلمات المفتاحية لـ موقع عمري : حساب العمر | احسب عمرك | حساب العمر
+        بالهجري | حساب العمر بالميلادي | حاسبة العمر؛
+      </v-col>
+    </v-row>
+    <v-row >
+      <v-col  class="text-center ">
+
+        شارك علي : 
         <ShareNetwork
+        style="margin-bottom:10px"
           network="whatsapp"
           url="https://ommry.com"
           :title="returnTitle()"
@@ -105,10 +114,11 @@
         >
           <button class="shareButton">
             <v-icon class="iconShare" color="white">mdi-whatsapp</v-icon>
-            <span>شارك علي واتساب</span>
+            <span>  واتساب</span>
           </button>
         </ShareNetwork>
         <ShareNetwork
+        style="margin-bottom:10px"
           network="twitter"
           url="https://ommry.com"
           :title="returnTitle()"
@@ -117,27 +127,22 @@
         >
           <button class="shareButton">
             <v-icon class="iconShare" color="white">mdi-twitter</v-icon>
-            <span>شارك علي تويتر</span>
+            <span>  تويتر</span>
           </button>
         </ShareNetwork>
         <ShareNetwork
+       
           network="facebook"
           url="https://ommry.com"
-         
+         :title="returnTitle()"
           :quote="returnTitle()"
           hashtags="ommry,arabic"
         >
-          <button class="shareButton">
+          <button class="shareButton"> 
             <v-icon class="iconShare" color="white">mdi-facebook</v-icon>
-            <span>شارك علي فيسبوك</span>
+            <span>  فيسبوك</span>
           </button>
         </ShareNetwork>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col style="color:white" class="text-center">
-        الكلمات المفتاحية لـ موقع عمري : حساب العمر | احسب عمرك | حساب العمر
-        بالهجري | حساب العمر بالميلادي | حاسبة العمر؛
       </v-col>
     </v-row>
 
@@ -295,7 +300,7 @@ export default {
   border-radius: 5px;
   color: white;
   padding: 4px 7px;
-  margin: 0 10px;
+  margin: 3px 7px;
 }
 .ageArea {
   span {
