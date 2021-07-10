@@ -95,6 +95,45 @@
         {{ Math.floor(timeDiff / 1000) }}
       </v-col>
     </v-row>
+    <v-row justify="center">
+      <v-col class="text-center">
+        <ShareNetwork
+          network="whatsapp"
+          url="https://ommry.com"
+          :title="returnTitle()"
+          hashtags="ommry,arabic"
+        >
+          <button class="shareButton">
+            <v-icon class="iconShare" color="white">mdi-whatsapp</v-icon>
+            <span>شارك علي واتساب</span>
+          </button>
+        </ShareNetwork>
+        <ShareNetwork
+          network="twitter"
+          url="https://ommry.com"
+          :title="returnTitle()"
+          :quote="date1 || 0"
+          hashtags="ommry,arabic"
+        >
+          <button class="shareButton">
+            <v-icon class="iconShare" color="white">mdi-twitter</v-icon>
+            <span>شارك علي تويتر</span>
+          </button>
+        </ShareNetwork>
+        <ShareNetwork
+          network="facebook"
+          url="https://ommry.com"
+         
+          :quote="returnTitle()"
+          hashtags="ommry,arabic"
+        >
+          <button class="shareButton">
+            <v-icon class="iconShare" color="white">mdi-facebook</v-icon>
+            <span>شارك علي فيسبوك</span>
+          </button>
+        </ShareNetwork>
+      </v-col>
+    </v-row>
     <v-row>
       <v-col style="color:white" class="text-center">
         الكلمات المفتاحية لـ موقع عمري : حساب العمر | احسب عمرك | حساب العمر
@@ -138,6 +177,15 @@ export default {
   //     main("2021-04-18");
   //   },
   methods: {
+    returnTitle() {
+
+      let text1 = `لقد إستخدمت هذه الأداه لحساب عمري بدقة وعمري هو : 
+      `
+
+
+      return  `${text1 +  this.date1}
+      `
+    },
     calcAge() {
       this.TableData1 = [];
       this.TableData2 = [];
@@ -237,10 +285,21 @@ export default {
 </script>
 
 <style lang="scss">
+.shareButton {
+  .iconShare {
+    // background-color: rgb(7, 70, 1);
+    padding: 3px;
+  }
+
+  background-color: rgb(114, 114, 114);
+  border-radius: 5px;
+  color: white;
+  padding: 4px 7px;
+  margin: 0 10px;
+}
 .ageArea {
   span {
     font-weight: bold;
-  
   }
   text-align: center;
   background-color: #f5f5f5;
