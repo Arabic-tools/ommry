@@ -17,6 +17,10 @@
     <v-footer>
       <v-row>
         <v-col style="text-align:center">
+          الموقع برعاية :
+
+          <a href="https://wasetshera.com?myad=53195"> وسيط شراء من الإنترنت</a>
+          <br />
           للإتصال بنا:
           <a href="mailto:Ommry@inboxeen.com">Ommry@inboxeen.com</a>
 
