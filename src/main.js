@@ -5,12 +5,9 @@ import VueSocialSharing from 'vue-social-sharing'
 import VueGtag from "vue-gtag";
 
 Vue.use(VueGtag, {
-  config: { id: "G-5S2WVEL61S" }
-  , includes: [
-    { id: 'G-NL7329JYL3' },
-  ]
-
+  config: { id: "UA-208155997-5" }
 });
+
 Vue.use(VueSocialSharing);
 Vue.config.productionTip = false
 
