@@ -1,6 +1,9 @@
 # ommry
 
-#Google analytics
+
+
+## Google Analytics
+```
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-208155997-5"></script>
 <script>
@@ -10,7 +13,7 @@
 
   gtag('config', 'UA-208155997-5');
 </script>
-
+```
 
 ## Project setup
 ```
