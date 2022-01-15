@@ -25,7 +25,7 @@
           <a href="mailto:Ommry@inboxeen.com">Ommry@inboxeen.com</a>
 
           <br />
-          جميع الحقوق محفوظة - موقع عمري 2021 ©
+          جميع الحقوق محفوظة - موقع عمري 2022 ©
         </v-col>
       </v-row>
     </v-footer>
